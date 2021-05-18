@@ -10,25 +10,31 @@ import Navigation from './component/Navigation';
 import Home from './pages/Home';
 import Contact from './pages/Contact';
 import About from './pages/About';
+import Error404 from './pages/Error404';
+import Footer from './component/Footer';
 
 
 function App() {
+
   return (
     <Router>
       <Navigation/>
 
       <Switch>
-        <Route path="/about">
-          <About/>
-        </Route>
-        <Route path="/contact">
-          <Contact/>
-        </Route>
-        <Route path="/">
+        <Route exact path="/">
           <Home/>
         </Route>
+        <Route exact path="/contact">
+          <Contact/>
+        </Route>
+        <Route exact path="/about">
+          <About/>
+        </Route>
+        <Route exact path="*">
+          <Error404/>
+        </Route>
       </Switch>
-
+      <Footer/>
     </Router>
   );
 }
